@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Giftery - Custom Order Form</title>
+  <!-- Include lighter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fff0f5;
+      color: #333;
+      padding: 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #d63384;
+      font-weight: 300;  /* Lighter weight */
+    }
+    form {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 25px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 500;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    input[type="checkbox"] {
+      width: auto;
+      margin-right: 10px;
+    }
+    .custom-options {
+      display: none;
+      margin-top: 20px;
+      background-color: #fff8fc;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px dashed #d63384;
+    }
+    button {
+      background-color: #d63384;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #c2186a;
+    }
+    .custom-options h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      color: #d63384;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>The Giftery Order Form 🦢</h1>
+  <form onsubmit="alert('Thank you! Your order has been submitted 🥰'); return false;">
+    
+    <!-- Address Section -->
+    <label>Name</label>
+    <input type="text" name="name" required />
+
+    <label>Email Address</label>
+    <input type="email" name="email" required />
+
+    <label>Phone Number</label>
+    <input type="tel" name="phone" required />
+
+    <label>Delivery Date</label>
+    <input type="date" name="deliveryDate" required />
+
+    <label>Address</label>
+    <textarea name="address" rows="3" required placeholder="Enter the delivery address..."></textarea>
+
+    <label>Type of Gift</label>
+    <select name="giftType" required>
+      <option value="">Select</option>
+      <option>Birthday</option>
+      <option>Anniversary</option>
+      <option>Friendship</option>
+      <option>Corporate</option>
+      <option>Other</option>
+    </select>
+
+    <label>
+      <input type="checkbox" id="customToggle" onclick="toggleCustomOptions()" />
+      I want to customize my gift 🎀
+    </label>
+
+    <div class="custom-options" id="customOptions">
+      <h2>Let’s Customize Your Gift 🌷</h2>
+      <label>Choose Packaging Style</label>
+      <select name="packaging">
+        <option value="">Select</option>
+        <option>Basket</option>
+        <option>Box</option>
+        <option>Bouquet-style</option>
+      </select>
+
+      <label>Add-ons (you can pick more than one):</label>
+      <label><input type="checkbox" name="addons" value="Jewelry" /> Jewelry</label>
+      <label><input type="checkbox" name="addons" value="Chocolates" /> Chocolates</label>
+      <label><input type="checkbox" name="addons" value="Mini Perfume" /> Mini Perfume</label>
+      <label><input type="checkbox" name="addons" value="Polaroid Photos" /> Polaroid Photos</label>
+      <label><input type="checkbox" name="addons" value="LED Lights" /> LED Lights</label>
+      <label><input type="checkbox" name="addons" value="Scroll Notes" /> Scroll Notes</label>
+      <label><input type="checkbox" name="addons" value="Others" /> Others (Please specify below)</label>
+
+      <label>Any special instructions?</label>
+      <textarea name="instructions" rows="3"></textarea>
+    </div>
+
+    <label>Message on the card</label>
+    <textarea name="cardMessage" rows="3" placeholder="Write something sweet 💌"></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function toggleCustomOptions() {
+      const box = document.getElementById('customOptions');
+      const toggle = document.getElementById('customToggle');
+      box.style.display = toggle.checked ? 'block' : 'none';
+    }
+  </script>
+
+</body>
+</html>
+
